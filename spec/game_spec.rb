@@ -63,23 +63,61 @@ describe 'A game of rock paper scissors' do
         expect(game.play(:rock, :scissors)).to eq("Rock beats scissors!")
         expect(game.play(:scissors, :rock)).to eq("Rock beats scissors!")
       end
-      skip('is finished')
+      # skip('is finished')
+      it 'finishes the game' do
+        game = Game.new
+        game.start
+        game.play(:rock, :scissors)
+        expect(game.finish). to eq ("Game Over")
+      end
+
     end
 
     context 'rock vs paper' do
-      skip('returns "Paper beats rock!"')
-      skip('is finished')
+      # skip('returns "Paper beats rock!"')
+      it 'returns "Paper beats rock!"' do
+        game = Game.new
+        game.start
+        expect(game.play(:rock, :paper)).to eq("Paper beats rock!")
+      end
+      it 'finishes the game' do
+        game = Game.new
+        game.start
+        game.play(:rock, :paper)
+        expect(game.finish). to eq ("Game Over")
+      end
     end
 
 
     context 'scissors vs paper' do
-      skip('returns "Scissors vs paper!"')
-      skip('is finished')
+      # skip('returns "Scissors vs paper!"')
+      it 'returns "Scissors beats paper!"' do
+        game = Game.new
+        game.start
+        expect(game.play(:scissors, :paper)).to eq("Scissors beats paper!")
+      end
+      # skip('is finished')
+      it 'finishes the game' do
+        game = Game.new
+        game.start
+        game.play(:rock, :paper)
+        expect(game.finish). to eq ("Game Over")
+      end
     end
 
     context 'a tie game' do
-      skip('returns "Tie game. Try again!"')
-      skip('is not finished')
+      # skip('returns "Tie game. Try again!"')
+      it 'returns "Tie game. Try again!"' do
+        game = Game.new
+        game.start
+        expect(game.play(:scissors, :scissors)).to eq("Tie game. Try again!")
+      end
+      # skip('is not finished')
+      it 'is not finished' do
+        # game = Game.new
+        # game.start
+        # expect(game.play(:scissors, :scissors)).to eq("Tie game. Try again!")
+      end
     end
 
   end
